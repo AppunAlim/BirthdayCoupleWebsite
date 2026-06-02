@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<script src="script.js" defer></script>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="petals-bg" id="petalsBg"></div>
+  <div class="hero-hearts" id="heroHearts"></div>
+  <p class="hero-tag">✦ Untuk kamu yang spesial</p>
+  <h1 class="hero-title">
+    Happy<br>
+    <em>Birthday</em>
+  </h1>
+  <p class="hero-subtitle" id="heroSubtitle">Hari ini adalah hari yang paling spesial, karena kamu lahir ke dunia ini ❤️</p>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="scrollTo({top:document.getElementById('countdown').offsetTop,behavior:'smooth'})">Lihat Pesan Untukmu</button>
+    <button class="btn-ghost" onclick="launchConfetti()">🎊 Rayakan!</button>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <p class="section-label reveal">⏳ Menghitung Hari</p>
+  <h2 class="section-title reveal">Hari Istimewamu</h2>
+  <p class="section-desc reveal">Masukkan tanggal ulang tahunnya untuk melihat hitungan mundur — atau rayakan hari ini!</p>
+  <div class="birthday-date-input reveal">
+    <label for="bdayInput">📅 Tanggal Ulang Tahun:</label>
+    <input type="date" id="bdayInput" />
+    <button class="btn-primary" style="padding:10px 24px;font-size:13px;" onclick="updateCountdown()">Update</button>
+  </div>
+  <div class="countdown-grid" id="countdownGrid">
+    <div class="countdown-box">
+      <span class="countdown-num" id="days">--</span>
+      <span class="countdown-label">Hari</span>
+    </div>
+    <div class="countdown-box">
+      <span class="countdown-num" id="hours">--</span>
+      <span class="countdown-label">Jam</span>
+    </div>
+    <div class="countdown-box">
+      <span class="countdown-num" id="minutes">--</span>
+      <span class="countdown-label">Menit</span>
+    </div>
+    <div class="countdown-box">
+      <span class="countdown-num" id="seconds">--</span>
+      <span class="countdown-label">Detik</span>
+    </div>
+  </div>
+  <p class="birthday-message" id="birthdayMsg">🎂 Selamat Ulang Tahun! Hari ini adalah harimu, Sayang! 🎂</p>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+  <p class="section-label reveal">💌 Dari Hatiku</p>
+  <h2 class="section-title reveal" style="color:white;">Untukmu, Segalanya</h2>
+  <p class="section-desc reveal" style="color:rgba(255,255,255,0.5);">Kata-kata ini selalu ada di hatiku, hanya untukmu.</p>
+
+  <div class="message-card reveal" id="msgCard">
+    <p class="message-text" id="msgText">
+      Setiap hari bersamamu adalah hadiah yang tidak ternilai. Saat kamu tersenyum, dunia terasa lebih cerah. Di hari ulang tahunmu ini, aku ingin kamu tahu betapa berharganya kamu bagiku — kemarin, hari ini, dan selamanya.
+    </p>
+    <p class="message-from" id="msgFrom">— Dengan cinta tulus ❤️</p>
+  </div>
+
+  <div class="custom-msg-wrap reveal">
+    <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:12px;">✏️ Tulis pesanmu sendiri:</p>
+    <textarea id="customMsg" placeholder="Tuliskan pesanmu yang penuh cinta di sini..."></textarea>
+    <div class="name-row">
+      <input type="text" id="toName" placeholder="Untuk siapa? (nama kekasih)" />
+      <input type="text" id="fromName" placeholder="Dari siapa? (namamu)" />
+    </div>
+    <br>
+    <button class="update-btn" onclick="updateMessage()">💌 Perbarui Pesan</button>
+  </div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories">
+  <p class="section-label reveal">📸 Kenangan Kita</p>
+  <h2 class="section-title reveal">Momen yang Tak Terlupakan</h2>
+  <p class="section-desc reveal">Setiap momen bersamamu adalah kenangan yang akan selalu kuingat.</p>
+  <div class="gallery-grid">
+    <div class="memory-card reveal" style="animation-delay:0.1s">
+      <span class="mem-num">01</span>
+      <span class="icon">🌅</span>
+      <p class="mem-title">Pertama Bertemu</p>
+      <p class="mem-desc">Hari itu aku tidak menyangka akan bertemu seseorang yang mengubah hidupku.</p>
+    </div>
+    <div class="memory-card reveal" style="animation-delay:0.2s">
+      <span class="mem-num">02</span>
+      <span class="icon">🍽️</span>
+      <p class="mem-title">Makan Malam Pertama</p>
+      <p class="mem-desc">Kamu begitu lucu saat tidak bisa memilih menu, dan akhirnya kita pesan yang sama.</p>
+    </div>
+    <div class="memory-card reveal" style="animation-delay:0.3s">
+      <span class="mem-num">03</span>
+      <span class="icon">🌙</span>
+      <p class="mem-title">Malam Bintang</p>
+      <p class="mem-desc">Berbaring di bawah langit malam, berbicara sampai pagi tentang mimpi kita.</p>
+    </div>
+    <div class="memory-card reveal" style="animation-delay:0.4s">
+      <span class="mem-num">04</span>
+      <span class="icon">🚗</span>
+      <p class="mem-title">Road Trip Kita</p>
+      <p class="mem-desc">Tersesat bersama tapi tidak pernah benar-benar hilang, karena aku punya kamu.</p>
+    </div>
+    <div class="memory-card reveal" style="animation-delay:0.5s">
+      <span class="mem-num">05</span>
+      <span class="icon">☕</span>
+      <p class="mem-title">Pagi yang Tenang</p>
+      <p class="mem-desc">Secangkir kopi dan tawamu di pagi hari — itulah kebahagiaan yang sesungguhnya.</p>
+    </div>
+    <div class="memory-card reveal" style="animation-delay:0.6s">
+      <span class="mem-num">06</span>
+      <span class="icon">💫</span>
+      <p class="mem-title">Setiap Hari Denganmu</p>
+      <p class="mem-desc">Tidak perlu momen besar, karena momen kecil bersamamu adalah yang terindah.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section id="wishes">
+  <p class="section-label reveal">🎁 Doa Untukmu</p>
+  <h2 class="section-title reveal">Harapan di Hari Spesialmu</h2>
+  <p class="section-desc reveal">Semua ini kupanjatkan untukmu dengan sepenuh hati.</p>
+  <div class="wishes-grid">
+    <div class="wish-card reveal">
+      <div class="wish-icon">🌟</div>
+      <p class="wish-text">"Semoga setiap impianmu menjadi kenyataan, dan setiap langkahmu dipenuhi cahaya."</p>
+      <div class="wish-accent">✨</div>
+    </div>
+    <div class="wish-card reveal">
+      <div class="wish-icon">💪</div>
+      <p class="wish-text">"Semoga kamu selalu kuat menghadapi tantangan, karena aku selalu ada di sisimu."</p>
+      <div class="wish-accent">🔥</div>
+    </div>
+    <div class="wish-card reveal">
+      <div class="wish-icon">😊</div>
+      <p class="wish-text">"Semoga senyummu tidak pernah pudar, dan kebahagiaan selalu mengiringimu."</p>
+      <div class="wish-accent">🌈</div>
+    </div>
+    <div class="wish-card reveal">
+      <div class="wish-icon">❤️</div>
+      <p class="wish-text">"Semoga cinta kita semakin kuat, tumbuh bersama setiap hari yang berlalu."</p>
+      <div class="wish-accent">💝</div>
+    </div>
+    <div class="wish-card reveal">
+      <div class="wish-icon">🏥</div>
+      <p class="wish-text">"Semoga kesehatanmu selalu terjaga, agar kita bisa menua bersama dengan bahagia."</p>
+      <div class="wish-accent">🌿</div>
+    </div>
+    <div class="wish-card reveal">
+      <div class="wish-icon">🎯</div>
+      <p class="wish-text">"Semoga tahun ini penuh pencapaian luar biasa dan momen yang tak terlupakan."</p>
+      <div class="wish-accent">🏆</div>
+    </div>
+  </div>
+</section>
+
+<!-- CELEBRATE -->
+<section id="celebrate">
+  <p class="section-label reveal">🎊 Yuk Rayakan!</p>
+  <h2 class="section-title reveal">Sudah Saatnya Berpesta!</h2>
+  <p class="section-desc reveal">Tekan tombol di bawah dan biarkan konfeti merayakan harimu!</p>
+  <button class="big-btn reveal" onclick="launchConfetti(this)">
+    🎂 Selamat Ulang Tahun! 🎉
+  </button>
+</section>
+
+<footer>
+  <span class="heart-text">Made with love, just for you ❤️</span>
+  Dibuat dengan penuh cinta • Selamat Ulang Tahun, Sayang
+</footer>
+</body>
+</html>
